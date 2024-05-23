@@ -19,6 +19,7 @@ import { restaurantsRequest } from "./src/services/restaurants/restaurants.servi
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurant.context';
 import { LocationContextProvider } from './src/services/location/location.context';
 import { Navigation } from './src/infrastructure/navigation';
+import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
 
 
 const App = () => {
@@ -27,11 +28,13 @@ const App = () => {
     <>
       <StatusBar backgroundColor="black" />
       <ThemeProvider theme={theme}>
-        <LocationContextProvider>
-          <RestaurantsContextProvider>
-            <Navigation></Navigation>
-          </RestaurantsContextProvider>
-        </LocationContextProvider>
+        <FavouritesContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <Navigation></Navigation>
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
     </>
   );

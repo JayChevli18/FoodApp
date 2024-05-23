@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,13 +16,22 @@ import { RestaurantInfoCard } from '../components/restaurant-info-card.component
 import { RestaurantsContext } from '../../../services/restaurants/restaurant.context';
 import { Search } from '../components/search.component';
 import { RestaurantsNavigator } from '../../../infrastructure/navigation/restaurants.navigator';
+import { FavouritesBar } from '../../../components/favourites/favorites-bar.component';
+import { FavouritesContext } from '../../../services/favourites/favourites.context';
 
 export const RestaurantScreen=({navigation})=> {
 
     const {isLoading,restaurants}=useContext(RestaurantsContext);
+    const [isToggled, setIsToggled]=useState(false);
+    const {favourites}=useContext(FavouritesContext);
+
     return (
     <SafeAreaView style={{flex:1}}>
-        <Search></Search>
+        <Search
+          isFavouritesToggled={isToggled}
+          onFavouritesToggle={()=>setIsToggled(!isToggled)}
+        ></Search>
+        {isToggled && <FavouritesBar favourites={favourites} onNavigate={navigation.navigate}></FavouritesBar>}
       <View style={styles.list}>
       {
         isLoading &&(

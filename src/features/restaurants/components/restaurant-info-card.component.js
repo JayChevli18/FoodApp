@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Favourite } from "../../../components/favourites/favourites.component";
 
 const RestaurantCardStyled = styled(Card)`
     background-color:white;
@@ -39,7 +40,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
     return (
         <RestaurantCardStyled elevation={5} >
+            <View>
+            <Favourite restaurant={restaurant}></Favourite>
             <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
+            </View>
             <Title>{name}</Title>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <View style={{ flexDirection: "row", marginLeft: 16, paddingTop: 5, paddingBottom: 4, alignItems: "center" }}>

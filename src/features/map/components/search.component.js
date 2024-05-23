@@ -17,7 +17,7 @@ export const Search=()=>{
         <Searchbar
             style={{backgroundColor:"white"}}
             icon="map"
-            iconColor='blue'
+            iconColor='black'
             placeholder="Search for a location"
             value={searchKeyword}
             onSubmitEditing={() => {

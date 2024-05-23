@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { Search } from "../map/components/search.component";
 import { LocationContext } from "../../services/location/location.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurant.context";
+import { MapCallout } from "./components/map-callout.component";
 
 const customMapStyle = [
   {
@@ -227,7 +228,7 @@ const customMapStyle = [
   }
 ];
 
-export const MapScreen = () => {
+export const MapScreen = ({navigation}) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
   const [latDelta, setLatDelta] = useState(0);
@@ -263,7 +264,11 @@ export const MapScreen = () => {
             }}
             title={restaurant.name}
             description={restaurant.address}
-          />
+          >
+            <Callout onPress={()=>navigation.navigate("RestaurantDetails", {restaurant})}>
+              <MapCallout restaurant={restaurant}></MapCallout>
+            </Callout>
+          </Marker>
         ))}
       </MapView>
     </>
