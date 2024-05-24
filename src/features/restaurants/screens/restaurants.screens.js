@@ -18,6 +18,7 @@ import { Search } from '../components/search.component';
 import { RestaurantsNavigator } from '../../../infrastructure/navigation/restaurants.navigator';
 import { FavouritesBar } from '../../../components/favourites/favorites-bar.component';
 import { FavouritesContext } from '../../../services/favourites/favourites.context';
+import { FadeInView } from '../../../components/animations/fade.animations';
 
 export const RestaurantScreen=({navigation})=> {
 
@@ -51,7 +52,9 @@ export const RestaurantScreen=({navigation})=> {
       data={restaurants}
       renderItem={({item}) => (
           <TouchableOpacity onPress={()=>navigation.navigate("RestaurantDetails",{restaurant:item})}>
+          <FadeInView>
           <RestaurantInfoCard  restaurant={item}/>
+          </FadeInView>
           </TouchableOpacity>
       )}
       keyExtractor={(item) => item.name}
