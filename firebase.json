@@ -11,5 +11,31 @@
         "*.local"
       ]
     }
-  ]
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099,
+      "host": "192.168.29.214"
+    },
+    "functions": {
+      "port": 5001,
+      "host": "192.168.29.214"
+    },
+    "firestore": {
+      "port": 8080,
+      "host": "192.168.29.214"
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }
