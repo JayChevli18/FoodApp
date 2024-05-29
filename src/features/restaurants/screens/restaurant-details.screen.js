@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { ScrollView, SafeAreaView } from "react-native";
-import { List } from "react-native-paper";
+import { List,Divider } from "react-native-paper";
 
 
 export const RestaurantDetailsScreen = ({ route }) => {
@@ -25,9 +25,10 @@ export const RestaurantDetailsScreen = ({ route }) => {
                     onPress={() => setBreakfastExpanded(!breakfastExpanded)}
                 >
                     <List.Item title="Scrambled Eggs"></List.Item>
+                    <Divider />
                     <List.Item title="Bread-Butter"></List.Item>
                 </List.Accordion>
-
+                <Divider style={{borderColor:"black", borderBottomWidth:1}} />
                 <List.Accordion
                     rippleColor="black"
                     title="Lunch"
@@ -37,10 +38,12 @@ export const RestaurantDetailsScreen = ({ route }) => {
                     onPress={() => setLunchExpanded(!lunchExpanded)}
                 >
                     <List.Item title="Mushroom Soup"></List.Item>
+                    <Divider />
                     <List.Item title="Mexican Rice"></List.Item>
+                    <Divider />
                     <List.Item title="Sandwich"></List.Item>
                 </List.Accordion>
-
+                <Divider style={{borderColor:"black", borderBottomWidth:1}} />
                 <List.Accordion
                     rippleColor="black"
                     title="Dinner"
@@ -50,10 +53,12 @@ export const RestaurantDetailsScreen = ({ route }) => {
                     onPress={() => setDinnerExpanded(!dinnerExpanded)}
                 >
                     <List.Item title="Spaghetti Bolognese" />
+                    <Divider />
                     <List.Item title="Veal Cutlet with Chicken Mushroom Rotini" />
+                    <Divider />
                     <List.Item title="Steak Frites" />
                 </List.Accordion>
-
+                <Divider style={{borderColor:"black", borderBottomWidth:1}} />
                 <List.Accordion
                     rippleColor="black"
                     title="Drinks"
@@ -64,11 +69,17 @@ export const RestaurantDetailsScreen = ({ route }) => {
                     onPress={() => setDrinksExpanded(!drinksExpanded)}
                 >
                     <List.Item title="Coffee" />
+                    <Divider />
                     <List.Item title="Tea" />
+                    <Divider />
                     <List.Item title="Modelo" />
+                    <Divider />
                     <List.Item title="Coke" />
+                    <Divider />
                     <List.Item title="Fanta" />
                 </List.Accordion>
+                <Divider style={{borderColor:"black", borderBottomWidth:1}} />
+
             </ScrollView>
         </SafeAreaView>
     )
